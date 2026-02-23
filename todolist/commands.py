@@ -1,22 +1,43 @@
 import sys
 
 class CommandsProgram():
+    def __init__(self):
+        self.tarefas = []
+
     def command_help():
-        print(' ')
-        print('Lista de comandos úteis:')
-        print('-> help-commands: lista de todos os comandos do programa \n')
+        print(
+            """
+            Lista de comandos úteis:
+
+            -> help-commands: Lista de todos os comandos do programa \n
+            """
+        )
 
     def help_commands():
-        print(' ')
-        print('Lista de comandos:')
-        print('- create: cria tarefa tarefa')
-        print('- rename: renomeia a tarefa')
-        print('- delete: deleta tarefa \n')
+        print(
+            """
+            Lista de comandos:
 
-    def command_create(command):
-        command = str(input('> ')).lower()
+            -> create-task: Cria tarefas
+            -> show: Mostra lista de tarefas
+            -> rename: Renomeia tarefas
+            -> delete: Remove tarefas
+            -> exit: Saí do programa
+            """
+        )
 
+    def command_create(self):
+        tarefa = str(input(''))
+
+        self.tarefas.append(tarefa)
+
+    def command_show_itens(self):
+        for i in self.tarefas:
+            print(i)
+
+    def command_delete(self):
+        i = int(input())
+        self.tarefas.remove()
 
     def command_exit():
-        print('Programa encerrado, até a próxima')
-        sys.exit()
+        sys.exit('Programa encerrado')

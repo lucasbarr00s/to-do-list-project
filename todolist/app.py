@@ -16,12 +16,19 @@ class MainCommandTerminal(CommandsProgram):
                 CommandsProgram.command_help()    
             case 'help-commands':
                 CommandsProgram.help_commands()
-            case 'create':
-                CommandsProgram.command_create(command)
+            case 'create-task':
+                CommandsProgram.command_create(self)
+            case 'show':
+                resultado_lista = CommandsProgram.command_show_itens(self)
+                print(resultado_lista)
             case 'rename':
                 ...
             case 'delete':
-                ...
+                if len(resultado_lista) >= 1:
+                    print(resultado_lista)
+                    CommandsProgram.command_delete(self)
+                else:
+                    print('Lista vazia!')
             case 'exit':
                 CommandsProgram.command_exit()
             case _:
