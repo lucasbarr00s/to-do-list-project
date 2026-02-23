@@ -5,7 +5,8 @@ class CommandsProgram():
         self.tarefas = []
 
     def command_help():
-        print(
+        print
+        (
             """
             Lista de comandos úteis:
 
@@ -14,7 +15,8 @@ class CommandsProgram():
         )
 
     def help_commands():
-        print(
+        print
+        (
             """
             Lista de comandos:
 
@@ -28,16 +30,26 @@ class CommandsProgram():
 
     def command_create(self):
         tarefa = str(input(''))
-
-        self.tarefas.append(tarefa)
+        
+        if len(tarefa) >= 2:
+            self.tarefas.append(tarefa)
 
     def command_show_itens(self):
+        if len(self.tarefas) == 0:
+            print('Lista vazia')
+
+        index_item = 0
         for i in self.tarefas:
-            print(i)
+            index_item = index_item + 1
+            print(f'{index_item}. {i}')
+
+    def command_rename(self):
+        ...
 
     def command_delete(self):
-        i = int(input())
-        self.tarefas.remove()
+        i = str(input('Qual item quer deletar? '))
+
+        self.tarefas.remove(i)
 
     def command_exit():
         sys.exit('Programa encerrado')

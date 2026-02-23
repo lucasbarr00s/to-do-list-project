@@ -1,8 +1,8 @@
-from welcome import print_welcome_message
+from infos import InfosProgram
 
 from commands import CommandsProgram
-
-print_welcome_message()
+infoss = InfosProgram()
+infoss.print_welcome_message()
 
 class MainCommandTerminal(CommandsProgram):
     def __init__(self):
@@ -16,14 +16,14 @@ class MainCommandTerminal(CommandsProgram):
                 CommandsProgram.command_help()    
             case 'help-commands':
                 CommandsProgram.help_commands()
-            case 'create-task':
+            case 'create':
                 CommandsProgram.command_create(self)
             case 'show':
-                resultado_lista = CommandsProgram.command_show_itens(self)
-                print(resultado_lista)
+                CommandsProgram.command_show_itens(self)
             case 'rename':
-                ...
+                CommandsProgram.command_rename(self)
             case 'delete':
+                resultado_lista = self.tarefas 
                 if len(resultado_lista) >= 1:
                     print(resultado_lista)
                     CommandsProgram.command_delete(self)
